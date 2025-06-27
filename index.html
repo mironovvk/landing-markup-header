@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="collapse navbar-collapse w-100" id="collapseExample">
+                <div class="collapse navbar-collapse" id="collapseExample">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#home" class="smooth-scroll">Портфолио</a></li>
                         <li><a href="#features" class="smooth-scroll">Готовые решения</a></li>
@@ -75,7 +75,7 @@
                     const lightLogo = document.querySelector('.logo--light');
 
                     window.addEventListener('scroll', () => {
-                        if (window.scrollY > 50) {
+                        if (window.scrollY > 40) {
                             header.classList.remove('header_transparent');
                             header.classList.add('header_scrolled');
                         } else {

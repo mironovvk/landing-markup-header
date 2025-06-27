@@ -132,6 +132,8 @@ main {
 }
 
 
+
+
 /* стили шапки */
 .topbar {
     display: flex;
@@ -162,7 +164,7 @@ header.header__wrapper {
     display: flex;
     align-items: center;
     top: 40px;
-    height: 70px;
+    padding: 10px 0;
     transition: .4s ease-in background-color;
 }
 
@@ -198,11 +200,6 @@ header.header__wrapper {
     background-color: var(--color-white);
 }
 
-.header__wrapper.header_scrolled .navbar-collapse {
-    background-color: #1e73be;
-}
-
-
 /* отображение логоипа */
 .header__wrapper.header_transparent .logo--dark,
 .header__wrapper.header_scrolled .logo--light {
@@ -216,10 +213,11 @@ header.header__wrapper {
 
 .header-row {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     position: relative;
     width: 100%;
+    gap: 32px;
 }
 
 .navbar-header {
@@ -232,22 +230,23 @@ header.header__wrapper {
 .navbar-collapse {
     display: flex !important;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     flex: 1;
     background: none;
     position: static;
     padding: 0;
     width: 100%;
-    transition: .4s ease-in background-color;
 }
 
 ul.navbar-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 32px;
+    justify-content: end;
+    flex-wrap: wrap;
+    width: 100%;
+    column-gap: 32px;
     margin: 0;
-    padding: 0;
     list-style: none;
 }
 
@@ -440,22 +439,20 @@ ul.navbar-nav {
 /* Маленькие устройства (горизонтальные телефоны, менее 768px) */
 @media (max-width: 767.98px) {
     .header-row {
+        display: inline;
         flex-wrap: wrap;
     }
 
     .navbar-collapse {
         display: none !important;
-        position: absolute;
-        top: 100%;
+        position: relative;
         left: 0;
         right: 0;
         z-index: 1200;
         flex-direction: column;
         align-items: flex-start;
         padding: 20px 0;
-        width: 100vw;
-        max-width: 100vw;
-        
+
     }
 
     .navbar-collapse.open {
@@ -464,10 +461,8 @@ ul.navbar-nav {
 
     ul.navbar-nav {
         flex-direction: column;
-        gap: 20px;
-        width: 100%;
         align-items: flex-start;
-        padding-left: 24px;
+        gap: 20px;
     }
 
     .hamburger {
@@ -486,4 +481,3 @@ ul.navbar-nav {
 
 /* Очень маленькие устройства (портретные телефоны, менее 576px) */
 @media (max-width: 575.98px) {}
-
