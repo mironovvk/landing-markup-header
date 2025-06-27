@@ -45,6 +45,7 @@
             </div>
         </div>
     </section>
+    Improved visual
     <header id="header" class="header__wrapper fixed-top header_transparent">
         <div class="container">
             <div class="header-row">
@@ -61,7 +62,7 @@
                 </div>
 
                 <div class="collapse navbar-collapse w-100" id="collapseExample">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="#home" class="smooth-scroll">Портфолио</a></li>
                         <li><a href="#features" class="smooth-scroll">Готовые решения</a></li>
                         <li><a href="#contacts" class="smooth-scroll">Контакты</a></li>
@@ -77,13 +78,12 @@
                     window.addEventListener('scroll', () => {
                         if (window.scrollY > 50) {
                             header.classList.remove('header_transparent');
-                            header.classList.add('header_colored');
+                            header.classList.add('header_scrolled');
                         } else {
                             header.classList.add('header_transparent');
-                            header.classList.remove('header_colored');
+                            header.classList.remove('header_scrolled');
                         }
                     });
-
 
 
 
@@ -111,10 +111,12 @@
         </div>
     </header>
     <main>
-        <div style="height: 1000px; margin-top: 200px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptas, molestias.
+        <div class="container">
+            <div style="height: 1000px; margin-top: 200px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptas, molestias.
+            </div>
+
         </div>
-        </section>
     </main>
     <footer class="footer__wrapper footer py-5 w-100">
         <div class="container">
