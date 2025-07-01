@@ -1,3 +1,4 @@
+/* Подлкючение шрифта */
 @font-face {
     font-family: 'ProximaNova';
     src: url('../fonts/ProximaNova/proximanova_light.woff2') format('woff2');
@@ -56,19 +57,18 @@
     font-display: swap;
 }
 
+
+/* Базовые стили: переменные, html, body */
 :root {
     /* шрифты проекта */
     --font-main: 'ProximaNova', sans-serif;
 
     /* цвета проекта */
     --color-white: #fff;
-
-    /* основной цвет для фона блок 1 */
-    --color1: #262b3e;
-    /* основной цвет для фона блок 2 */
-    --color2: #1e73be;
-    /* цвет при наведении на ссылки */
-    --color3: #ffffffbf;
+    --color-deep-indigo: #262b3e;
+    --color-vivid-blue: #1e73be;
+    --color-soft-white: #ffffffbf;
+    --color-pale-blue: #dbe9ff;
 
     --footer-link-hover-color: #fff;
     --footer-bg-color: #282a2b;
@@ -128,7 +128,7 @@ main {
 }
 
 
-/* стили шапки */
+/* Стили топбара */
 .topbar {
     display: flex;
     align-items: center;
@@ -149,7 +149,11 @@ main {
 
 .topbar__widget a {
     text-decoration: none;
-    color: #fff;
+    color: var(--color-white);
+}
+
+.topbar__widget a:hover {
+    color: var(--color-soft-white);
 }
 
 .topbar__widget li:not(:last-child)::after {
@@ -157,12 +161,14 @@ main {
     margin: 0 .5rem;
 }
 
+
+/* Стили хедера */
 header.header__wrapper {
     display: flex;
     align-items: center;
     top: 40px;
-    transition: .4s ease-in background-color;
-    background-color: #fff;
+    background-color: var(--color-white);
+    transition: background-color 0.4s ease-in;
 }
 
 header:focus {
@@ -174,41 +180,44 @@ header:focus {
 }
 
 header.header__wrapper:not(.header_scrolled) .header-row {
-    border-bottom: 1px solid #dbe9ff;
-}
-
-.header__wrapper .smooth-scroll {
-    color: var(--color1);
-}
-
-.header__wrapper .smooth-scroll:hover {
-    color: var(--color2);
-}
-
-.header__wrapper .hamburger-inner::after,
-.header__wrapper .hamburger-inner::before,
-.header__wrapper .hamburger-inner {
-    background-color: var(--color2);
+    border-bottom: 1px solid var(--color-pale-blue);
 }
 
 .header__wrapper.header_scrolled {
-    background: var(--color2);
+    background: var(--color-vivid-blue);
     color: var(--color-white);
-    opacity: .85;
     top: 0;
+    opacity: 0.85;
 }
 
 .header__wrapper.header_scrolled .smooth-scroll {
     color: var(--color-white);
 }
 
-.header__wrapper.header_scrolled .hamburger-inner::after,
+.header__wrapper.header_scrolled .hamburger-inner,
 .header__wrapper.header_scrolled .hamburger-inner::before,
-.header__wrapper.header_scrolled .hamburger-inner {
+.header__wrapper.header_scrolled .hamburger-inner::after {
     background-color: var(--color-white);
 }
 
-/* отображение логоипа */
+.header__wrapper .smooth-scroll {
+    color: var(--color-deep-indigo);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.65px;
+}
+
+.header__wrapper .smooth-scroll:hover {
+    color: var(--color-vivid-blue);
+}
+
+.header__wrapper .hamburger-inner,
+.header__wrapper .hamburger-inner::before,
+.header__wrapper .hamburger-inner::after {
+    background-color: var(--color-vivid-blue);
+}
+
 .header__wrapper .logo--dark,
 .header__wrapper.header_scrolled .logo--light {
     display: inline;
@@ -228,11 +237,10 @@ header.header__wrapper:not(.header_scrolled) .header-row {
     padding: 10px 0;
 }
 
-
 .navbar-collapse {
     display: flex !important;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     flex: 1;
     background: none;
     position: static;
@@ -243,7 +251,7 @@ ul.navbar-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     flex-wrap: wrap;
     width: 100%;
     column-gap: 25px;
@@ -251,20 +259,14 @@ ul.navbar-nav {
     list-style: none;
 }
 
-.smooth-scroll {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: .65px;
-}
-
 .header__wrapper.header_scrolled .smooth-scroll:hover,
 .header__wrapper.header_scrolled .smooth-scroll:active,
 .header__wrapper.header_scrolled .smooth-scroll:focus {
-    color: var(--color3);
+    color: var(--color-soft-white);
 }
 
-/* стили бургера */
+
+/* Стили кнопки гамбургера */
 .hamburger-box {
     display: none;
 }
@@ -306,7 +308,7 @@ ul.navbar-nav {
 }
 
 
-/* стили подвала */
+/* Стили футера */
 .footer__wrapper {
     background-color: var(--footer-bg-color);
     color: var(--color-white);
@@ -462,7 +464,7 @@ ul.navbar-nav {
         flex-direction: column;
         align-items: flex-start;
         box-shadow: inset 0 1px 0 #ffffff1a;
-        border-top: 1px solid #dbe9ff;
+        border-top: 1px solid var(--color-pale-blue);
     }
 
     .navbar-collapse.open {
@@ -478,7 +480,7 @@ ul.navbar-nav {
 
     .navbar-nav li {
         width: 100%;
-        border-bottom: 1px solid rgb(219 233 255 / 1);
+        border-bottom: 1px solid var(--color-pale-blue);
     }
 
     .navbar-nav li:last-child {
